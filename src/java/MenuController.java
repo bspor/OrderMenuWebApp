@@ -1,7 +1,7 @@
-package newpackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(urlPatterns = {"/MenuController"})
 public class MenuController extends HttpServlet {
-
+private static final String RESULT_PAGE = "order.jsp";
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -30,16 +30,18 @@ public class MenuController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet MenuController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet MenuController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+                    FakeDatabase fdb = new FakeDatabase();
+        MenuItem[] menuItems = fdb.getMenuItems();
+        
+          //request.setAttribute("output1", menuItems);
+          for (MenuItem m: menuItems ) {
+            out.print("<tr><td><input type='checkbox' name='item/>" + m.getMenuName() + "</td></tr>");
+          }
+        // This object lets you forward both the request and response
+        // objects to a destination page
+       // RequestDispatcher view =
+       //         request.getRequestDispatcher(RESULT_PAGE);
+       // view.forward(request, response);
         } finally {            
             out.close();
         }
