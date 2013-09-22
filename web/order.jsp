@@ -15,8 +15,7 @@
     <body>
     <title> Calculator </title>
 </head>
-<form method="POST" class="menu" id="menu" 
- action="MenuController">
+<form method="POST" class="menu" id="menu" action="MenuController">
 
 
  
