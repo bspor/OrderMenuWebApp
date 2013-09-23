@@ -16,7 +16,7 @@
 <div>
 <img src="images//bistro.jpg" class="picture"/>
 </div>
-    <a href="<% response.sendRedirect("MenuController"); %>" > Order Now! </a> 
+    <a href="order.jsp"> Order Now! </a> 
 </body>
 </html>
 </form>

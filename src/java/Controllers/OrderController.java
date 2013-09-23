@@ -1,11 +1,13 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controllers;
 
 import Model.Menu;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,13 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author bspor
+ * @author Brandon
  */
-@WebServlet(urlPatterns = {"/MenuController"})
-public class MenuController extends HttpServlet {
-
-    private static final String RESULT_PAGE = "/order.jsp";
-
+@WebServlet(name = "OrderController", urlPatterns = {"/OrderController"})
+public class OrderController extends HttpServlet {
+private static final String RESULT_PAGE = "/order.jsp";
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -37,26 +37,29 @@ public class MenuController extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             Menu menu = new Menu();
-            request.setAttribute("menuList", menu.getMenuNames()); // Store products in request scope.
+            String[] temp = request.getParameterValues("checkbox"); // Store products in request scope.
+            
+            request.setAttribute("output1", temp);
             request.getRequestDispatcher(RESULT_PAGE).forward(request, response); // Forward to JSP page to display them in a HTML table.
         } catch (SQLException e) {
             throw new ServletException("Retrieving products failed!", e);
         } finally {            
             out.close();
     }
-}
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-/**
- * Handles the HTTP
- * <code>GET</code> method.
- *
- * @param request servlet request
- * @param response servlet response
- * @throws ServletException if a servlet-specific error occurs
- * @throws IOException if an I/O error occurs
- */
-@Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP
+     * <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -71,7 +74,7 @@ public class MenuController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -82,7 +85,7 @@ public class MenuController extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-        public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 }
