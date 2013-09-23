@@ -102,7 +102,7 @@ public class Menu {
             // Also, notice we do not cast the object returned by the
             // iterator to a String. Why?
             //System.out.println("<br>try: " + it.next());
-            System.out.println(menu.getMenuItemByID(i).get("item_price"));
+            System.out.println(menu.getMenuItemByID(i).get("item_name"));
             
         }
 

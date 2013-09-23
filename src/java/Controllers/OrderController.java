@@ -4,6 +4,7 @@
  */
 package Controllers;
 
+import Model.CashRegister;
 import Model.Menu;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,6 +41,12 @@ private static final String RESULT_PAGE = "/order.jsp";
             String[] temp = request.getParameterValues("checkbox"); // Store products in request scope.
             
             request.setAttribute("output1", temp);
+            CashRegister cr = new CashRegister();
+            cr.startNewSale();
+            cr.addItemToSale("Big MacBurger", 1);
+            cr.addItemToSale("Fries", 1);
+            cr.finalizeSale();
+            request.setAttribute(RESULT_PAGE, out);
             request.getRequestDispatcher(RESULT_PAGE).forward(request, response); // Forward to JSP page to display them in a HTML table.
         } catch (SQLException e) {
             throw new ServletException("Retrieving products failed!", e);

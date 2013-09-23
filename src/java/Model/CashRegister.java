@@ -17,7 +17,7 @@ public class CashRegister {
      * This method starts a new sale
      * @param custID The customer Id is needed so it can pass it to Receipt
      */
-    public void startNewSale() {
+    public void startNewSale() throws SQLException {
         receipt = new Receipt();
     }
 
@@ -34,6 +34,6 @@ public class CashRegister {
      *  This method simply calls the finalizeSaleAndPrintReceipt method in Receipt
      */
     public void finalizeSale() {
-        
+        receipt.finalizeSaleAndPrintReceipt();
     }
 }
