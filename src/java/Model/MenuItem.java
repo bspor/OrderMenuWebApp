@@ -9,8 +9,8 @@ import java.util.logging.Logger;
  * Needs re-design
  * @author bspor
  */
-public class MenuItem extends Menu  {
-    private Menu menu = new Menu();
+public class MenuItem extends MenuBad  {
+    private MenuBad menu = new MenuBad();
     private String menuID, menuName, menuPrice;
     private int qty;
 
@@ -21,11 +21,11 @@ public class MenuItem extends Menu  {
         this.menu = menu;
     }
 
-    public Menu getMenu() {
+    public MenuBad getMenu() {
         return menu;
     }
 
-    public void setMenu(Menu menu) {
+    public void setMenu(MenuBad menu) {
         this.menu = menu;
     }
 

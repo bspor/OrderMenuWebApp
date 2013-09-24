@@ -12,7 +12,7 @@ import java.util.Date;
 public class Receipt {
 
     public Receipt() throws SQLException {
-        Menu menu = new Menu();
+        MenuBad menu = new MenuBad();
     }
 
     MenuItem[] menuItems = new MenuItem[0];
@@ -90,7 +90,7 @@ public class Receipt {
     public static void main(String[] args) throws SQLException {
         
         CashRegister cr = new CashRegister();
-        Menu menu = new Menu();
+        MenuBad menu = new MenuBad();
             cr.startNewSale();
             cr.addItemToSale("Big MacBurger", 1);
             cr.addItemToSale("Fries", 1);

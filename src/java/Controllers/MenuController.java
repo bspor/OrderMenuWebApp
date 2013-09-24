@@ -1,6 +1,6 @@
 package Controllers;
 
-import Model.Menu;
+import Model.MenuBad;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -36,7 +36,7 @@ public class MenuController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            Menu menu = new Menu();
+            MenuBad menu = new MenuBad();
             request.setAttribute("menuList", menu.getMenuNames()); // Store products in request scope.
             request.getRequestDispatcher(RESULT_PAGE).forward(request, response); // Forward to JSP page to display them in a HTML table.
         } catch (SQLException e) {
