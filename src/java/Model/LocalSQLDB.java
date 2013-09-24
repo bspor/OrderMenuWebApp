@@ -18,6 +18,8 @@ package Model;
 
 import java.util.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * <code>LocalSQLDB</code> is a general purpose class providing services 
@@ -42,7 +44,19 @@ public class LocalSQLDB implements DBAccessor {
 	 * immediately open a connection to the database. When the
 	 * connection is needed, call the openConnection method.
 	 */
-	public LocalSQLDB() {}
+	public LocalSQLDB() {
+            try {
+                openConnection("com.mysql.jdbc.Driver", 
+                        "jdbc:mysql://localhost:3306/restraunt",
+                        "root", "admin");
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(LocalSQLDB.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(LocalSQLDB.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(LocalSQLDB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 	
 	
 	/**

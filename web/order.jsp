@@ -19,19 +19,20 @@
 <form method="POST" class="menu" id="menu" action="OrderController">
     <table width="300" border="1">
     <%
-        Menu menu = new Menu();
-        List recs = menu.getMenuNames();
+        
+        List recs = (List)request.getAttribute("menuList");
         Iterator it = recs.iterator();
         int i = 1;
         while(it.hasNext()) {
+            out.print(it.next());
            // String temp = it.next().toString().trim();
-            out.print("<tr><td><input name='checkbox' type='checkbox' value='" 
-                    + menu.getMenuItemByID(i).get("item_price") + "' /> " 
-                    + it.next() + " &nbsp; " 
-                    +"<td>" 
-                    + menu.getMenuItemByID(i).get("item_price")
-                    +"</td>" 
-                    + "</td><tr>");
+            //out.print("<tr><td><input name='checkbox' type='checkbox' value='" 
+            //        + it.getMenuItemByID(i).get("item_price") + "' /> " 
+            //        + it.next() + " &nbsp; " 
+            //        +"<td>" 
+            //        + menu.getMenuItemByID(i).get("item_price")
+            //        +"</td>" 
+            //        + "</td><tr>");
             i++;
         }
     %>

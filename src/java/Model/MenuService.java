@@ -1,12 +1,20 @@
 package Model;
 
+import java.util.List;
+
 /**
  *
  * @author bspor
  */
 public class MenuService {
-    DBAccessor db = new LocalSQLDB();
+    private IMenuDAO menuDAO;
+
+    public MenuService() {
+        DBAccessor db = new LocalSQLDB();
+        menuDAO = new MenuDAO(db);
+    }
     
-    
-    
+    public List <MenuItem> getAllMenuItems () {
+        return menuDAO.getAllMenuItems();
+    }
 }

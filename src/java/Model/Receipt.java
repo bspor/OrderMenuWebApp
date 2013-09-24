@@ -18,7 +18,7 @@ public class Receipt {
     MenuItem[] menuItems = new MenuItem[0];
 
     public void addLineItem(String menuName, int qty) throws SQLException {
-        MenuItem item = new MenuItem(menuName, qty); //change this
+        MenuItem item = new MenuItem(); //change this
         addToArray(item);
     }
 
@@ -34,7 +34,7 @@ public class Receipt {
     private double getTotalBeforeDiscount() {
         double grandTotal = 0.0;
         for (MenuItem item : menuItems) {
-            grandTotal += Double.valueOf(item.getMenuPrice());
+            grandTotal += Double.valueOf(item.getItemPrice());
         }
         //grandTotal = (double)Math.round(grandTotal * 100) / 100;
         return roundDoubles(grandTotal);
@@ -62,7 +62,7 @@ public class Receipt {
 //        sb.append("#   Description").append("\t\tPrice").append("\n");
 //        sb.append("===================================").append("\n");
 //        //Loop through each item
-//        for (MenuItem item : menuItems) {
+//        for (MenuItem2 item : menuItems) {
 //            //Create my string
 //            sb.append(item.getQty()).append("   ")
 //                    .append(item.getMenuName()).append("\t$")

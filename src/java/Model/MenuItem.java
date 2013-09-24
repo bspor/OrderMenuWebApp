@@ -1,65 +1,94 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Model;
 
-
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Objects;
 
 /**
- * Needs re-design
+ *
  * @author bspor
  */
-public class MenuItem extends MenuBad  {
-    private MenuBad menu = new MenuBad();
-    private String menuID, menuName, menuPrice;
-    private int qty;
+public class MenuItem {
+    private int menuId;
+    private String itemId;
+    private Double itemPrice;
+    private int catId;
 
-    public MenuItem(String menuName, int qty) throws SQLException{
-        this.menuID = menuID;
-        this.menuName = menuName;
-        this.qty = qty;
-        this.menu = menu;
+    public MenuItem() {
     }
 
-    public MenuBad getMenu() {
-        return menu;
+    public MenuItem(int menuId, String itemId, Double itemPrice, int catId) {
+        this.menuId = menuId;
+        this.itemId = itemId;
+        this.itemPrice = itemPrice;
+        this.catId = catId;
     }
 
-    public void setMenu(MenuBad menu) {
-        this.menu = menu;
+    public int getMenuId() {
+        return menuId;
     }
 
-    public String getMenuID() {
-        return menuID;
+    public void setMenuId(int menuId) {
+        this.menuId = menuId;
     }
 
-    public void setMenuID(String menuID) {
-        this.menuID = menuID;
+    public String getItemId() {
+        return itemId;
     }
 
-    public String getMenuName() {
-        return menuName;
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
-    public void setMenuName(String menuName) {
-        this.menuName = menuName;
+    public Double getItemPrice() {
+        return itemPrice;
     }
 
-    public String getMenuPrice() {
-        System.out.println("this is my menu name:" + menuName);
-        System.out.println(menu.getMenuItemByID(1).get("item_price").toString());
-        String price = Double.toString( (Double)menu.getMenuItemByID(1).get("item_price"));
-        return price;
+    public void setItemPrice(Double itemPrice) {
+        this.itemPrice = itemPrice;
     }
 
- 
-    public int getQty() {
-        return qty;
+    public int getCatId() {
+        return catId;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
+    public void setCatId(int catId) {
+        this.catId = catId;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 73 * hash + this.menuId;
+        hash = 73 * hash + Objects.hashCode(this.itemId);
+        hash = 73 * hash + Objects.hashCode(this.itemPrice);
+        hash = 73 * hash + this.catId;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MenuItem other = (MenuItem) obj;
+        if (this.menuId != other.menuId) {
+            return false;
+        }
+        if (!Objects.equals(this.itemId, other.itemId)) {
+            return false;
+        }
+        if (!Objects.equals(this.itemPrice, other.itemPrice)) {
+            return false;
+        }
+        if (this.catId != other.catId) {
+            return false;
+        }
+        return true;
+    }
 }
