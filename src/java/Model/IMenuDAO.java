@@ -13,6 +13,8 @@ import java.util.List;
 public interface IMenuDAO {
 
     List<MenuItem> getAllMenuItems();
+    
+    MenuItem getMenuItemById(int id);
 
     void save(MenuItem menu);
     

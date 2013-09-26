@@ -15,8 +15,15 @@ public class MenuItem {
     private String itemId;
     private Double itemPrice;
     private int catId;
+    MenuItem menuItem;
+
 
     public MenuItem() {
+    }
+
+    public MenuItem(int menuId) {
+        MenuService ms = new MenuService();
+        menuItem = ms.getMenuItemById(menuId);
     }
 
     public MenuItem(int menuId, String itemId, Double itemPrice, int catId) {
@@ -56,6 +63,14 @@ public class MenuItem {
 
     public void setCatId(int catId) {
         this.catId = catId;
+    }
+
+    public MenuItem getMenuItem() {
+        return menuItem;
+    }
+
+    public void setMenuItem(MenuItem menuItem) {
+        this.menuItem = menuItem;
     }
 
     @Override

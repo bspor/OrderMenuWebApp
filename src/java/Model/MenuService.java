@@ -17,4 +17,8 @@ public class MenuService {
     public List <MenuItem> getAllMenuItems () {
         return menuDAO.getAllMenuItems();
     }
+    
+    public MenuItem getMenuItemById (int id) {
+        return menuDAO.getMenuItemById(id);
+    }
 }

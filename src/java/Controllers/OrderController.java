@@ -37,19 +37,15 @@ private static final String RESULT_PAGE = "/order.jsp";
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            MenuBad menu = new MenuBad();
             String[] temp = request.getParameterValues("checkbox"); // Store products in request scope.
-            
-            request.setAttribute("output1", temp);
-            CashRegister cr = new CashRegister();
-            cr.startNewSale();
-            cr.addItemToSale("Big MacBurger", 1);
-            cr.addItemToSale("Fries", 1);
-            cr.finalizeSale();
-            request.setAttribute(RESULT_PAGE, out);
+            String output ="";
+            for (int i = 0; i < temp.length; i++) {
+                output+="<p>" + temp[i] + "</p>";
+            }
+             
+            request.setAttribute("output1", output);
             request.getRequestDispatcher(RESULT_PAGE).forward(request, response); // Forward to JSP page to display them in a HTML table.
-        } catch (SQLException e) {
-            throw new ServletException("Retrieving products failed!", e);
+      
         } finally {            
             out.close();
     }

@@ -12,14 +12,13 @@ import java.util.Date;
 public class Receipt {
 
     public Receipt() throws SQLException {
-        MenuBad menu = new MenuBad();
     }
 
     MenuItem[] menuItems = new MenuItem[0];
 
     public void addLineItem(String menuName, int qty) throws SQLException {
         MenuItem item = new MenuItem(); //change this
-        addToArray(item);
+        addToArray(item.getMenuItem());
     }
 
     //Add my items into an array
@@ -90,7 +89,6 @@ public class Receipt {
     public static void main(String[] args) throws SQLException {
         
         CashRegister cr = new CashRegister();
-        MenuBad menu = new MenuBad();
             cr.startNewSale();
             cr.addItemToSale("Big MacBurger", 1);
             cr.addItemToSale("Fries", 1);
