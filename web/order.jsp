@@ -31,9 +31,9 @@
                 MenuItem it = (MenuItem) temp.next();
                 out.print("<tr><td>"
                         + "<input name='checkbox' type='checkbox' value='"
-                        + it.getItemId() + "'/> "
-                        + it.getItemPrice() + " &nbsp; "
-                        + "<td>" + it.getItemId() + "</td>" + "</td><tr>");
+                        + it.getItemPrice() + "'/> "
+                        + it.getItemId() + " &nbsp; "
+                        + "<td>" + it.getItemPrice() + "</td>" + "</td><tr>");
                 i++;
             }
         %>
@@ -54,6 +54,7 @@
             }
         %>
     </div>
+    <div id="adminportal"><a href="admin_portal.jsp"> Order Now! </a> </div>
 </form>
 </body>
 </html>
