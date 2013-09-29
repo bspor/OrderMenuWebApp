@@ -19,7 +19,7 @@
 </form>
 <body>
     <form action="edit" method="get">
-        <table width="200" border="3" cellspacing="1" cellpadding="1">
+        <table width="300" border="3" cellspacing="1" cellpadding="1">
             <caption>
                 Edit Menu
             </caption>
@@ -41,7 +41,8 @@
                             + "<input name='checkbox' type='checkbox' value='"
                             + it.getItemPrice() + "'/> "
                             + it.getItemId() + " &nbsp; "
-                            + "<td>" + it.getItemPrice() + "</td>" + "</td><tr>");
+                            + "<td>" + it.getItemPrice() + "</td>"
+                            + "<td>" + it.getCatId() + "</td>" + "</td><tr>");
                     i++;
                 }
             %>
