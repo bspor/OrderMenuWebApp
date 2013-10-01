@@ -14,7 +14,7 @@
 
 <body>
 <div>
-<img src="images//bistro.jpg" class="picture"/>
+<img name="picture" src="${picture}" class="picture"/>
 </div>
     <a href="order.jsp"> Order Now! </a> 
 </body>
